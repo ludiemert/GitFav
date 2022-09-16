@@ -30,5 +30,5 @@ Versão única
 EXPLORE Rocketseat
 Luciana Diemert dos Reis - Trabalho Inicial - LuDiemert - Luciana Diemert
 
-🎁 Agradecimentos
+🎁 Agradecimentos:
 Muito Grata à equipe Rocketseat
