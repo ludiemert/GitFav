@@ -1,0 +1,310 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing:  border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --text-cab-color:  #E1E1E6;
+    --text-cab-remov-color: #F75A68;
+    --text-color-span: #adada7;
+    --text-color-none: #8d8d83;
+
+
+    --cab-color:  #092D38;
+    --line-odd-color:  #06161B; /*linha impar*/
+    --line-even-color:  #4A808C; /*linha par*/
+
+    --cx-text-color: #06181C;
+    --cx-hover-color:  #0e3b46;
+    --body-color: #2F2F33;
+
+}
+
+/*uma classe padrao, para sumir com o Digite o Github username que quer favoritar */
+/* <label class="sr-only" no html */
+.sr-only { /*forçar para sumir da tela sem ter prob para o leitor de tela. Usuario nao vê mas o leitor de tela ve */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden ; /*transbordo da cx, existe mas nao da p ver porq esta dentro da cx   */
+    clip: rect(0, 0, 0, 0); /*crio uma cx retangulo p ele ficar la dentro e invisivel */
+    white-space: nowrap ; /*nao faz a quebra da cx*/
+    border-width: 0;/*largura da borda */
+}
+
+
+body {
+    font-size: 1.6rem;
+    background: var(--body-color);
+}
+
+body * {
+    font-family: 'Roboto', sans-serif;    
+}
+
+#app {
+    max-width: 1120px;
+    /*margin: 100px auto 100px; espaço ao centro dando espaço das laterais */
+    padding: 2rem; /*para nao ficar grudado qdo fechar a tela, todos os lados*/
+    margin: 0 auto;
+}
+
+/*alinhamento do header*/
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /*os obj nas pontas com espaço ao meio */
+
+    margin: 8rem  0;/*espaço do header  */
+
+    /*margin-bottom: 60px;*/
+}
+
+
+.search {
+
+    display: flex; /*um do lado do outro*/
+    align-items: center; /*alinhamento central dos elementos */
+    /*gap: 4px;*/
+
+}
+
+/*cx de texto do imput*/
+.search input {
+    width: 46rem;
+    border: 1px solid #ccc;
+    /*border-radius: .4rem 0 0 .4rem;*/
+    border-radius: 0.5rem;
+    /*padding: 0 .8rem;*/
+    padding: 1.6rem;
+    margin-right: 0.8rem;
+
+    background-color: var(--cx-text-color); /*cor dentro da cx de texto*/
+    color: var(--text-cab-color);
+    
+}
+
+.label-text {
+    position: absolute;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+
+/*cx de texto do favorito*/
+#input-search {
+
+    border: none;
+    border-radius: 5px;
+    
+    height: 4.8rem;
+    width: 47rem;
+
+    font-size: 16px;
+    line-height: 100%;
+    padding: 12px;
+    
+    background-color: var(--cx-text-color); /*cor dentro da cx de texto*/
+    color: var(--text-cab-color);
+}
+
+
+/*cx do lado do input o favorito*/
+.favorite {
+    
+    border-radius: 5px;
+    /*0 .4rem .4rem 0;*/
+    height: 3.2rem;
+    border: none;
+    padding: 0 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+    height: 4.8rem;
+    width: 22rem;
+
+    padding: 5px 3rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 24px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--cab-color);
+    color: var(--text-cab-color);
+    
+}
+
+.favorite:hover svg path,
+.favorite:hover {
+    transition: 600ms;
+
+    background-color: var(--cx-hover-color)
+    
+}
+
+/*filtro em cima dos botoes qdo passar o mouse em cima */
+.search:hover,
+.remove:hover {
+     filter: brightness(1.1);
+}
+
+/*tabela */
+
+table {
+    width: 100%; /*largura da tabela */
+
+    /*se quiser tirar os espacos de uma coluna da outra 
+    border-collapse: collapse; */
+
+    /*sombra na tabela*/
+    /*box-shadow:  12px 0 .6rem .4rem rgba(248, 244, 244, 0.738);*/
+    /*box-shadow:  0 0 .6rem .4rem rgba(248, 244, 244, 0.738);*/
+    box-shadow:  2px 0 .6rem .4rem rgba(248, 244, 244, 0.738);
+
+    
+    
+}
+
+table * { /*pega todos os elementos da tabela */
+    font-size: 1.4rem;
+    color: var(--text-cab-color);
+}
+
+/*cabeçalho */
+table th {
+    background: var(--cab-color);   
+    text-align: left;  /*texto alinhados a esquerda*/
+    font-weight: normal; /*peso da fonte */
+    padding:  2.5rem; /*padding interno */
+    
+
+}
+
+/*arredondar as bordas do primeiro filho da coluna, do cabeçalho*/
+table th:first-child {
+    border-top-left-radius: .4rem;
+}
+
+/*arredondar as bordas do ultimo filho da coluna, do cabeçalho*/
+table th:last-child {
+    border-top-right-radius: .4rem;
+}
+
+/*linhas com cores diferentes*/
+table tr:nth-child(odd) { /*impar*/
+    background: var(--line-odd-color);
+}
+
+/*pega todas as outras linhas ou colocar par */
+table tr {
+    background: var(--line-even-color);
+}
+
+/*espaços dentro do td , da linha */
+table td {
+    padding: 1.5rem;
+    text-align: left;
+}
+
+
+/*linha do usuario*/
+td.user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/*arrumar as imag */
+td.user img {
+    width:  5rem; /*largura da imagem*/
+    height:  5rem;    /*altura da imagem */
+
+    object-fit: cover; /*cobrir a imagem sempre cobrindo o tamanho*/
+    border-radius: 50%; /*arredondamento da imagem da cx*/    
+    
+}
+
+/*texto de cada linha */
+td.user a {
+    text-decoration: none; /*remover a linha de baixo do texto*/    
+    
+}
+
+td.user a p {
+    font-weight: bold;
+}
+
+td.user a span {
+    font-size: normal;
+    color: var(--text-color-span);
+}
+
+/*botao remover da tabela */   
+td .remove { 
+    cursor: pointer;
+    color: var(--text-cab-remov-color);
+    border: none;
+    background: none;
+    /*border: 1px solid red;
+    background-color: red; */
+}
+
+.none {
+    color: var(--text-color-none);
+    font-size: 4rem;
+
+    display: flex;
+    gap: 6rem;
+
+    font-weight: 700;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+    margin-top: 10rem;
+}
+
+
+
+/* Scroll
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0) ;
+}
+
+::-webkit-slider-thumb {
+    background-color: hsl(191, 31%, 42%);
+    border-radius: 100px;
+}
+
+::-webkit-scrollbar-button:start:decrement {
+    height: 50px;
+    display: block;
+    background-color: transparent;
+}
+
+::-webkit-scrollbar-button:end:increment {
+    height: 10px;
+  } */
+
+  @keyframes downtop {
+    0% {
+        opacity: 0;
+        transform: translateY(1.5rem);
+
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
