@@ -1,5 +1,7 @@
 GitFav
 
+![gitfav](https://user-images.githubusercontent.com/103541499/190828677-0c593436-a868-4f8d-9e2b-b02f025b67d8.png)
+
 
 Página para salvar perfis favoritos do Github.
 
